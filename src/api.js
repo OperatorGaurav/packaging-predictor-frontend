@@ -1,4 +1,4 @@
-const BASE = https://packaging-backend-v3.onrender.com;
+const BASE = "https://packaging-backend-v3.onrender.com";
 
 export const analyzeProduct = async (formData) => {
   const res = await fetch(`${BASE}/analyze`, {
