@@ -43,7 +43,7 @@ export default function App() {
     try {
       const result = await analyzeProduct({ ...form, imageBase64, imageType });
       setProduct(result);
-    } catch (e) { setError(e.message); }
+    } catch (e) { setError(e.message|| "Analysis failed. Please try again."); }
     finally { setLoading(false); }
   };
 
@@ -51,7 +51,7 @@ export default function App() {
     if (!product?._id) return;
     setRecLoading(true);
     try { const result = await getRecommendations(product._id); setRecommendations(result); }
-    catch (e) { setError(e.message); }
+    catch (e) { setError(e.message|| "Could not generate recommendations. Please try again."); }
     finally { setRecLoading(false); }
   };
 
